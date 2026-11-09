@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+  <!-- THOUGHTS Editorial Didone 'O' with Thought Quill Mark -->
+  <rect width="1000" height="1000" fill="#FFFFFF"/>
+  <g fill="#0D0D11">
+    <!-- Outer Didone 'O' with High-Contrast Variable Stroke -->
+    <path fill-rule="evenodd" d="
+      M 500 130
+      C 690 130, 830 290, 830 500
+      C 830 710, 690 870, 500 870
+      C 310 870, 170 710, 170 500
+      C 170 290, 310 130, 500 130 Z
+      M 500 166
+      C 385 166, 320 310, 320 500
+      C 320 690, 385 834, 500 834
+      C 615 834, 680 690, 680 500
+      C 680 310, 615 166, 500 166 Z
+    "/>
+    <!-- The Signature Editorial Thought Quill Mark in Counter -->
+    <path d="M 492 300 L 536 280 C 536 380, 528 500, 510 610 C 496 675, 482 710, 480 720 L 480 305 Z"/>
+  </g>
+</svg>

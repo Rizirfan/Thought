@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #FAFAFB; }
+      .letter { fill: #111827; font-family: 'Courier New', 'Courier Prime', monospace; font-weight: 700; letter-spacing: 12px; }
+      .subtext { fill: #6B7280; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 6px; }
+      .accent { fill: #2563EB; }
+      .bracket { stroke: #111827; stroke-width: 4; fill: none; stroke-linecap: round; }
+    </style>
+  </defs>
+  
+  <!-- Studio Canvas Background -->
+  <rect width="800" height="240" rx="16" class="bg"/>
+  
+  <!-- Subtle Framing Grid Lines -->
+  <line x1="80" y1="50" x2="100" y2="50" class="bracket"/>
+  <line x1="80" y1="50" x2="80" y2="70" class="bracket"/>
+  <line x1="720" y1="190" x2="700" y2="190" class="bracket"/>
+  <line x1="720" y1="190" x2="720" y2="170" class="bracket"/>
+
+  <!-- Main Typographic Wordmark -->
+  <g transform="translate(100, 130)">
+    <!-- 'TH' -->
+    <text x="0" y="0" font-size="54" class="letter">TH</text>
+    
+    <!-- Custom Typographic 'O' (with cinematic/screenplay aperture & thought cursor) -->
+    <g transform="translate(132, -38)">
+      <circle cx="24" cy="24" r="22" stroke="#111827" stroke-width="7" fill="none"/>
+      <!-- Inner thought cursor & aperture -->
+      <circle cx="24" cy="24" r="7" fill="#2563EB"/>
+      <line x1="24" y1="4" x2="24" y2="12" stroke="#111827" stroke-width="3"/>
+      <line x1="24" y1="36" x2="24" y2="44" stroke="#111827" stroke-width="3"/>
+      <line x1="4" y1="24" x2="12" y2="24" stroke="#111827" stroke-width="3"/>
+      <line x1="36" y1="24" x2="44" y2="24" stroke="#111827" stroke-width="3"/>
+    </g>
+
+    <!-- 'UGHTS' -->
+    <text x="195" y="0" font-size="54" class="letter">UGHTS</text>
+  </g>
+
+  <!-- Editorial Category Tagline -->
+  <text x="105" y="172" class="subtext">SCREENPLAY &amp; STORY STUDIO</text>
+</svg>

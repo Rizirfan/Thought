@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- App Icon Base Squircle -->
+  <rect width="512" height="512" rx="115" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Inner Border -->
+  <rect x="8" y="8" width="496" height="496" rx="107" fill="none" stroke="#334155" stroke-width="2" opacity="0.6"/>
+
+  <!-- Typographic 'T' Monogram with Integrated Thought Spark -->
+  <g transform="translate(106, 110)">
+    <!-- Top Horizontal Crossbar of 'T' (Designed like a precision film slate / slugline bracket) -->
+    <path d="M 10 30 L 290 30 C 296 30, 300 34, 300 40 L 300 70 C 300 76, 296 80, 290 80 L 175 80 L 175 280 C 175 286, 171 290, 165 290 L 135 290 C 129 290, 125 286, 125 280 L 125 80 L 10 80 C 4 80, 0 76, 0 70 L 0 40 C 0 34, 4 30, 10 30 Z" fill="#F8FAFC"/>
+    
+    <!-- Central Thought Glow & Screenwriting Aperture -->
+    <circle cx="150" cy="55" r="14" fill="url(#accentGrad)" filter="url(#glow)"/>
+    <circle cx="150" cy="55" r="7" fill="#FFFFFF"/>
+    
+    <!-- Subtle Typewriter Serifs at the Base -->
+    <rect x="110" y="280" width="80" height="10" rx="3" fill="#94A3B8"/>
+  </g>
+
+  <!-- Script Slugline Dot in Corner -->
+  <circle cx="390" cy="120" r="8" fill="#38BDF8" opacity="0.8"/>
+</svg>

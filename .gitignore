@@ -1,0 +1,15 @@
+*.iml
+.gradle
+/build
+build/
+!/build.gradle.kts
+!/settings.gradle.kts
+!/gradle.properties
+.idea
+.DS_Store
+/local.properties
+.kotlin
+scratch/
+.agents/
+skills-lock.json
+

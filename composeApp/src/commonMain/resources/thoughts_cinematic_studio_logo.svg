@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="100%">
+  <!-- Pure Monochrome Studio-Grade Screenwriting Logo -->
+  <rect width="960" height="300" fill="#FFFFFF"/>
+  
+  <g fill="#000000">
+    <!-- T -->
+    <path d="M 80 90 L 140 90 L 140 106 L 118 106 L 118 184 L 102 184 L 102 106 L 80 106 Z"/>
+
+    <!-- H -->
+    <path d="M 154 90 L 170 90 L 170 128 L 208 128 L 208 90 L 224 90 L 224 184 L 208 184 L 208 144 L 170 144 L 170 184 L 154 184 Z"/>
+
+    <!-- CINEMATIC 'O': Camera Aperture Iris & Screenplay Dialogue Quotes -->
+    <g transform="translate(242, 88)">
+      <!-- Outer Aperture Ring -->
+      <circle cx="48" cy="48" r="48" fill="none" stroke="#000000" stroke-width="12"/>
+      
+      <!-- 6 Mechanical Shutter Blades -->
+      <line x1="48" y1="6" x2="24" y2="48" stroke="#000000" stroke-width="4"/>
+      <line x1="24" y1="48" x2="48" y2="90" stroke="#000000" stroke-width="4"/>
+      <line x1="48" y1="90" x2="72" y2="48" stroke="#000000" stroke-width="4"/>
+      <line x1="72" y1="48" x2="48" y2="6" stroke="#000000" stroke-width="4"/>
+      <line x1="6" y1="48" x2="90" y2="48" stroke="#000000" stroke-width="4"/>
+
+      <!-- Inner Core: Screenplay Dialogue Quotes (” ) -->
+      <circle cx="48" cy="48" r="22" fill="#FFFFFF"/>
+      <path d="M 40 40 C 44 40 46 42 46 46 L 46 51 C 46 55 43 58 39 59 L 37 56 C 39 55 40 53 40 51 L 36 51 C 34 51 32 49 32 47 L 32 43 C 32 41 34 40 36 40 Z" fill="#000000"/>
+      <path d="M 52 40 C 56 40 58 42 58 46 L 58 51 C 58 55 55 58 51 59 L 49 56 C 51 55 52 53 52 51 L 48 51 C 46 51 44 49 44 47 L 44 43 C 44 41 46 40 48 40 Z" fill="#000000"/>
+    </g>
+
+    <!-- U -->
+    <path d="M 358 90 L 374 90 L 374 150 C 374 172 388 186 408 186 C 428 186 442 172 442 150 L 442 90 L 458 90 L 458 150 C 458 182 438 200 408 200 C 378 200 358 182 358 150 Z"/>
+
+    <!-- G -->
+    <path d="M 526 138 C 526 110 506 88 476 88 C 446 88 424 110 424 138 C 424 166 446 188 476 188 C 502 188 518 172 522 152 L 476 152 L 476 138 L 538 138 L 538 186 C 524 196 502 202 476 202 C 436 202 408 172 408 138 C 408 104 436 74 476 74 C 512 74 536 98 540 131 Z"/>
+
+    <!-- H -->
+    <path d="M 554 90 L 570 90 L 570 128 L 608 128 L 608 90 L 624 90 L 624 184 L 608 184 L 608 144 L 570 144 L 570 184 L 554 184 Z"/>
+
+    <!-- T -->
+    <path d="M 638 90 L 698 90 L 698 106 L 676 106 L 676 184 L 660 184 L 660 106 L 638 106 Z"/>
+
+    <!-- S -->
+    <path d="M 712 164 C 716 176 728 185 744 185 C 758 185 768 178 768 167 C 768 155 756 150 738 145 C 716 138 702 130 702 112 C 702 96 718 84 738 84 C 758 84 774 96 778 112 L 762 116 C 758 106 750 100 738 100 C 728 100 718 106 718 114 C 718 122 728 126 744 130 C 768 136 784 146 784 166 C 784 184 766 200 744 200 C 718 200 700 184 696 162 Z"/>
+
+    <!-- Cinema Registration Mark / 35mm Film Frame Sprocket Holes on Left & Right -->
+    <rect x="36" y="94" width="22" height="16" rx="4"/>
+    <rect x="36" y="126" width="22" height="16" rx="4"/>
+    <rect x="36" y="158" width="22" height="16" rx="4"/>
+
+    <rect x="806" y="94" width="22" height="16" rx="4"/>
+    <rect x="806" y="126" width="22" height="16" rx="4"/>
+    <rect x="806" y="158" width="22" height="16" rx="4"/>
+  </g>
+
+  <!-- Professional Filmmaking Metadata Rule (Slugline / Timecode) -->
+  <line x1="80" y1="228" x2="784" y2="228" stroke="#000000" stroke-width="2"/>
+  
+  <text x="80" y="254" font-family="'Courier New', Courier, monospace" font-size="12" font-weight="700" letter-spacing="3" fill="#000000">SCENE 01: INT. WRITING ROOM - DAY</text>
+  <text x="664" y="254" font-family="'Courier New', Courier, monospace" font-size="12" font-weight="700" letter-spacing="2" fill="#000000">[ 00:01:00 ]</text>
+</svg>

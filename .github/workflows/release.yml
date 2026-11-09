@@ -1,0 +1,164 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build Android APK
+        run: ./gradlew :composeApp:assembleDebug --no-daemon
+
+      - name: Prepare Android artifact
+        run: |
+          mkdir -p release-assets
+          cp composeApp/build/outputs/apk/debug/composeApp-debug.apk release-assets/thoughts-android.apk
+
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thoughts-android
+          path: release-assets/thoughts-android.apk
+
+  build-windows:
+    name: Build Windows Desktop
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build Windows Distributable
+        shell: pwsh
+        run: .\gradlew :composeApp:createDistributable --no-daemon
+
+      - name: Package Windows ZIP
+        shell: pwsh
+        run: |
+          $ProgressPreference = 'SilentlyContinue'
+          New-Item -ItemType Directory -Force -Path release-assets
+          Compress-Archive -Path "composeApp\build\compose\binaries\main\app\thoughts\*" -DestinationPath "release-assets\thoughts-windows-x64.zip" -Force
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thoughts-windows
+          path: release-assets/thoughts-windows-x64.zip
+
+  build-linux:
+    name: Build Linux Desktop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fakeroot dpkg
+
+      - name: Build Linux Distributable and Deb
+        run: |
+          ./gradlew :composeApp:createDistributable --no-daemon
+          ./gradlew :composeApp:packageDeb --no-daemon || true
+
+      - name: Package Linux Archives
+        run: |
+          mkdir -p release-assets
+          tar -czvf release-assets/thoughts-linux-x64.tar.gz -C composeApp/build/compose/binaries/main/app/thoughts .
+          find composeApp/build/compose/binaries/main/deb -name "*.deb" -exec cp {} release-assets/thoughts-linux-amd64.deb \; || true
+
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: thoughts-linux
+          path: release-assets/*
+
+  publish-release:
+    name: Publish GitHub Release
+    needs: [build-android, build-windows, build-linux]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Android artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: thoughts-android
+          path: release-assets
+
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: thoughts-windows
+          path: release-assets
+
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: thoughts-linux
+          path: release-assets
+
+      - name: Publish Release with separate platform assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || 'v1.0.0' }}
+          name: thoughts ${{ github.ref_type == 'tag' && github.ref_name || 'v1.0.0' }}
+          draft: false
+          prerelease: false
+          files: release-assets/*
+          body: |
+            ## thoughts — Multiplatform Screenplay Studio
+
+            Distraction-free, minimal monochrome screenwriting studio for storytellers.
+
+            ### Downloads by Platform:
+            - 🤖 **Android**: [`thoughts-android.apk`](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-android.apk) (Installable APK for phone & tablet)
+            - 🪟 **Desktop (Windows)**: [`thoughts-windows-x64.zip`](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-windows-x64.zip) (Portable 64-bit app with bundled runtime)
+            - 🐧 **Desktop (Linux)**: [`thoughts-linux-x64.tar.gz`](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-linux-x64.tar.gz) / [`thoughts-linux-amd64.deb`](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-linux-amd64.deb)
+
+            ---
+            ### Features:
+            - **Natural 3D Script Dossiers**: Borderless folder cards with long-press context actions (Open, Rename, Duplicate, Delete) and haptics.
+            - **Fountain Screenplay Editor**: Scene Headings, Action, Character, Parenthetical, Dialogue, Transition, Shot.
+            - **Paper & Ink Light Aesthetic**: Distraction-free monochrome typography.
+            - **100% Offline & Private**: Zero network permissions, all scripts stored locally.
+            - **Single-Tap Export**: PDF with proper theatrical margins and clean Fountain/plain-text script export.

@@ -9,7 +9,15 @@
 
 ---
 
-### [Download latest Android APK (`apk/thoughts.apk`)](apk/thoughts.apk)
+## Downloads & Releases
+
+Get the standalone binary for your platform from [GitHub Releases](https://github.com/Rizirfan/Thought/releases/latest):
+
+| Platform | Package | Description |
+|:---|:---|:---|
+| **Android** | [**`thoughts-android.apk`**](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-android.apk) | Standalone APK for phones & tablets (API 24+) • [Local mirror](apk/thoughts.apk) |
+| **Desktop (Windows)** | [**`thoughts-windows-x64.zip`**](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-windows-x64.zip) | Portable 64-bit Windows app (bundled with embedded runtime, no Java needed) |
+| **Desktop (Linux)** | [**`thoughts-linux-x64.tar.gz`**](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-linux-x64.tar.gz) / [**`.deb`**](https://github.com/Rizirfan/Thought/releases/latest/download/thoughts-linux-amd64.deb) | Tarball and Debian package for Linux x64 |
 
 ---
 
